@@ -47,5 +47,5 @@ jobs:
           cat .env
       - name: Run Docker
         run: |
-          docker stop ${{env.DOCKER_CONTAINER}} && docker rn ${{env.DOCEKR_CONTAINER}}
+          docker stop ${{env.DOCKER_CONTAINER}} && docker rm ${{env.DOCKER_CONTAINER}} && docker rmi ${{env.DOCKER_IMAGE}}
           docker run --env-file ./.env -d -p 3000:3000 --name ${{env.DOCKER_CONTAINER}}
